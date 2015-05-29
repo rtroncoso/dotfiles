@@ -42,6 +42,7 @@ set diffopt+=vertical
 " Filetype recognition ---------------------- {{{
  
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.blade.php set filetype=blade
 autocmd BufNewFile,BufRead *.scss set filetype=sass
 
 " }}}
@@ -105,9 +106,6 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 
-
-Plugin 'colorsupport'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'kien/ctrlp.vim'
@@ -122,22 +120,20 @@ Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'othree/html5.vim'
 Plugin 'terryma/vim-multiple-cursors'
 
-Plugin 'vim-php/vim-php-refactoring'
-Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 
-" For SnipMate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+Plugin 'vim-php/vim-php-refactoring'
+Plugin 'arnaud-lb/vim-php-namespace'
 
 Plugin 'joonty/vim-phpunitqf.git'
+
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 
 " }}}
-
 
 """""""
 " TAB "
@@ -177,6 +173,8 @@ set ignorecase
 set smartcase
 " Highlight a term when searching for it
 set hlsearch 
+" Incremental search
+set incsearch
 
 " }}}
 
@@ -201,7 +199,7 @@ nnoremap <leader>x :wq<cr>
 nnoremap <leader>a :q!<cr>
 
 " Remove search results
-nnoremap <leader>h :let @/=""<cr>
+nnoremap <leader>h :nohlsearch<cr>
 
 " Wraps the current word into single/double quotes
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
@@ -357,6 +355,18 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 "}}}
 
 
+""""""""""""""""""
+" EasyTags       "
+""""""""""""""""""
+
+" {{{
+
+let b:easytags_auto_highlight = 0
+let b:easytags_on_cursorhold = 1
+
+" }}}
+
+
 """""""""""
 " Airline "
 """""""""""
@@ -397,10 +407,24 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 
 """"""""""""""""""
+" Syntastic      "
+""""""""""""""""""
+
+" {{{
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+" }}}
+
+
+""""""""""""""""""
 " PHP Refactor   "
 """"""""""""""""""
 
+" {{{
 let g:php_refactor_command='php /usr/local/bin/refactor'
+" }}}
 
 
 """"""""""""""""""
