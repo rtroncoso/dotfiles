@@ -26,8 +26,13 @@ set nowb
 set showcmd
 " set the commandheight
 set cmdheight=2
+" set nowrap
+set nowrap
+" set mouse
+set mouse=a
 
 colo xoria256
+
 
 " Let Gstatus split vertically instead of horizontally
 set diffopt+=vertical
