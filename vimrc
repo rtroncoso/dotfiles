@@ -30,6 +30,9 @@ set cmdheight=2
 set nowrap
 " set mouse
 set mouse=a
+"set syntax
+syntax on
+
 
 colo xoria256
 
@@ -135,6 +138,8 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'joonty/vim-phpunitqf.git'
 
 Plugin 'scrooloose/syntastic'
+
+Plugin 'othree/yajs.vim'
 
 call vundle#end()
 
